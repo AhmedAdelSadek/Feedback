@@ -1,0 +1,127 @@
+<h1 mat-dialog-title align="center">{{ "Send us feedback" }}</h1>
+
+<div mat-dialog-content>
+  <div fxLayout="row wrap" fxFlex="100">
+    <div fxFlex="95">
+      <mat-button-toggle-group
+        name="fontStyle"
+        aria-label="Font Style"
+        [formControl]="ratting"
+        fxLayoutAlign="space-around"
+        fxLayout="row wrap"
+        class="toggleGroupBorder feedback"
+      >
+        <mat-button-toggle value="1" class="toggleBorder">
+          <li class="angry">
+            <div>
+              <svg class="eye left">
+                <use xlink:href="#eye"></use>
+              </svg>
+              <svg class="eye right">
+                <use xlink:href="#eye"></use>
+              </svg>
+              <svg class="mouth">
+                <use xlink:href="#mouth"></use>
+              </svg>
+            </div>
+          </li>
+        </mat-button-toggle>
+        <mat-button-toggle value="2" class="toggleBorder">
+          <li class="sad">
+            <div>
+              <svg class="eye left">
+                <use xlink:href="#eye"></use>
+              </svg>
+              <svg class="eye right">
+                <use xlink:href="#eye"></use>
+              </svg>
+              <svg class="mouth">
+                <use xlink:href="#mouth"></use>
+              </svg>
+            </div>
+          </li>
+        </mat-button-toggle>
+        <mat-button-toggle value="3" class="toggleBorder">
+          <li class="ok">
+            <div></div>
+          </li>
+        </mat-button-toggle>
+        <mat-button-toggle value="4" class="toggleBorder">
+          <li class="good">
+            <div>
+              <svg class="eye left">
+                <use xlink:href="#eye"></use>
+              </svg>
+              <svg class="eye right">
+                <use xlink:href="#eye"></use>
+              </svg>
+              <svg class="mouth">
+                <use xlink:href="#mouth"></use>
+              </svg>
+            </div>
+          </li>
+        </mat-button-toggle>
+        <mat-button-toggle value="5" class="toggleBorder">
+          <li class="happy">
+            <div>
+              <svg class="eye left">
+                <use xlink:href="#eye"></use>
+              </svg>
+              <svg class="eye right">
+                <use xlink:href="#eye"></use>
+              </svg>
+            </div>
+          </li>
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+    <div fxFlex="95">
+      <mat-form-field appearance="fill" class="matFormFieldDisplay">
+        <textarea
+          matInput
+          [formControl]="textArea"
+          class="textAreaHeight"
+        ></textarea>
+      </mat-form-field>
+    </div>
+  </div>
+</div>
+
+<div mat-dialog-actions class="matDialogPadding">
+  <div fxFlex="95" fxLayoutAlign="space-between">
+    <button
+      mat-button
+      mat-raised-button
+      color="accent"
+      fxFlex="30"
+      (click)="onNoClick()"
+      class="matButton"
+    >
+      {{ "Cancel" }}
+    </button>
+    <button
+      mat-button
+      mat-raised-button
+      color="accent"
+      [disabled]="!ratting.value"
+      (click)="onSendClick()"
+      fxFlex="30"
+      class="matButton"
+    >
+      {{ "Send" }}
+    </button>
+  </div>
+</div>
+
+<svg style="display: none">
+  <symbol viewBox="0 0 7 4" id="eye">
+    <path
+      d="M1,1 C1.83333333,2.16666667 2.66666667,2.75 3.5,2.75 C4.33333333,2.75 5.16666667,2.16666667 6,1"
+    ></path>
+  </symbol>
+  <symbol viewBox="0 0 18 7" id="mouth">
+    <path
+      d="M1,5.5 C3.66666667,2.5 6.33333333,1 9,1 C11.6666667,1 14.3333333,2.5 17,5.5"
+    ></path>
+  </symbol>
+</svg>
